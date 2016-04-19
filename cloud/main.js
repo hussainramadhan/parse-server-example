@@ -5,72 +5,72 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 
-// Parse.Cloud.afterSave ("Activity",function (request) {
+Parse.Cloud.afterSave ("Activity",function (request) {
                        
-//                        //to do add the tredning currnet value
+                       //to do add the tredning currnet value
                        
-//                        var trending = Parse.Object.extend("Trending");
-//                        var trendingQuery = new Parse.Query(trending);
-//                        trendingQuery.equalTo("story", request.object.get("story"));
-//                        trendingQuery.find({
-//                                           success: function(results) {
-//                                           alert("Successfully retrieved " + results.length + " trending object");
-//                                           // Do something with the returned Parse.Object values
-//                                           if ( results.length>0)
-//                                           {
-//                                           for (var i = 0; i < results.length; i++) {
-//                                           var object = results[i];
-//                                           alert("I am inside the loop");
-//                                           object.increment("currentValue");
-//                                           object.save();
-//                                           alert(object.id + "incremented");
-//                                           };
-//                                           }
+                       var trending = Parse.Object.extend("Trending");
+                       var trendingQuery = new Parse.Query(trending);
+                       trendingQuery.equalTo("story", request.object.get("story"));
+                       trendingQuery.find({
+                                          success: function(results) {
+                                          alert("Successfully retrieved " + results.length + " trending object");
+                                          // Do something with the returned Parse.Object values
+                                          if ( results.length>0)
+                                          {
+                                          for (var i = 0; i < results.length; i++) {
+                                          var object = results[i];
+                                          alert("I am inside the loop");
+                                          object.increment("currentValue");
+                                          object.save();
+                                          alert(object.id + "incremented");
+                                          };
+                                          }
                                           
-//                                           else
-//                                           {
-//                                           alert("I am inside the else statement");
-//                                           var Trending = Parse.Object.extend("Trending");
-//                                           var trending = new Trending();
-                                          
-                                          
-//                                           trending.set("story", request.object.get("story"));
+                                          else
+                                          {
+                                          alert("I am inside the else statement");
+                                          var Trending = Parse.Object.extend("Trending");
+                                          var trending = new Trending();
                                           
                                           
-//                                           trending.set("length", 48);
+                                          trending.set("story", request.object.get("story"));
+                                          
+                                          
+                                          trending.set("length", 48);
                                           
                                           
                                           
-//                                           var arr = [], i = 48;
-//                                           while (i--) {
-//                                           arr[i] = 0;
-//                                           }
+                                          var arr = [], i = 48;
+                                          while (i--) {
+                                          arr[i] = 0;
+                                          }
                                           
-//                                           trending.set("values", arr);
+                                          trending.set("values", arr);
                                           
-//                                           trending.set("currentValue", 1);
-//                                           trending.set("sum", 0);
-//                                           trending.set("sqrSum", 0);
-//                                           trending.set("zScore",  -2.0);
+                                          trending.set("currentValue", 1);
+                                          trending.set("sum", 0);
+                                          trending.set("sqrSum", 0);
+                                          trending.set("zScore",  -2.0);
                                           
-//                                           alert("I am about to save");
-//                                           trending.save();
-                                          
-                                          
-//                                           };
-//                                           },
-//                                           error: function(error) {
-//                                           alert("Error: " + error.code + " " + error.message);
+                                          alert("I am about to save");
+                                          trending.save();
                                           
                                           
-//                                           }
-//                                           });
+                                          };
+                                          },
+                                          error: function(error) {
+                                          alert("Error: " + error.code + " " + error.message);
+                                          
+                                          
+                                          }
+                                          });
 
                        
                        
                        
                        
-//                        });
+                       });
 
 
 // // delete story
@@ -515,4 +515,3 @@ Parse.Cloud.define('hello', function(req, res) {
 //                                            status.error("Uh oh, something went wrong.");
 //                                            });
 //                 });
-
