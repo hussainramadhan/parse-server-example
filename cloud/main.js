@@ -73,99 +73,99 @@ Parse.Cloud.afterSave ("Activity",function (request) {
                        });
 
 
-// // delete story
-// Parse.Cloud.beforeDelete("Story", function(request, response) {
+// delete story
+Parse.Cloud.beforeDelete("Story", function(request, response) {
                          
-//                          Parse.Cloud.useMasterKey();
+                         Parse.Cloud.useMasterKey();
                          
-//                          var currentuser = Parse.User.current();
+                         var currentuser = Parse.User.current();
                          
-//                          var currentUser = currentuser.id;
-//                          var username = request.object.get("ownerId");
+                         var currentUser = currentuser.id;
+                         var username = request.object.get("ownerId");
                          
-//                          var _ = require('underscore.js');
+                         var _ = require('underscore.js');
                          
                          
-//                          console.log(request.object)
+                         console.log(request.object)
 
                          
-//                          if (currentUser == username) {
+                         if (currentUser == username) {
                          
-//                          console.log("I'am inside the if statment");
+                         console.log("I'am inside the if statment");
                          
                          
 
                          
-//                          //activity query
-//                          var Activity = Parse.Object.extend("Activity");
-//                          var activityqQuery = new Parse.Query(Activity);
-//                          activityqQuery.equalTo("story", request.object);
+                         //activity query
+                         var Activity = Parse.Object.extend("Activity");
+                         var activityqQuery = new Parse.Query(Activity);
+                         activityqQuery.equalTo("story", request.object);
                          
                          
-//                          //storyline query
-//                          var storyline = Parse.Object.extend("StoryLine");
-//                          var storylineQuery = new Parse.Query(storyline);
-//                          storylineQuery.equalTo("story", request.object);
+                         //storyline query
+                         var storyline = Parse.Object.extend("StoryLine");
+                         var storylineQuery = new Parse.Query(storyline);
+                         storylineQuery.equalTo("story", request.object);
                          
-//                          //Trending Query
-//                          var Trending = Parse.Object.extend("Trending");
-//                          var trendingQuery = new Parse.Query(Trending);
-//                          trendingQuery.equalTo("story", request.object);
+                         //Trending Query
+                         var Trending = Parse.Object.extend("Trending");
+                         var trendingQuery = new Parse.Query(Trending);
+                         trendingQuery.equalTo("story", request.object);
                          
-//                          var activityPromises = [];
+                         var activityPromises = [];
                          
                          
-//                          activityqQuery.find(function(results){
-//                                     //creating the promises
+                         activityqQuery.find(function(results){
+                                    //creating the promises
                                     
                                                        
-//                                     _.each(results, function(result){
+                                    _.each(results, function(result){
                                     
-//                                            activityPromises.push(result.destroy());
-//                                            });
-//                                             return Parse.Promise.when(activityPromises);
+                                           activityPromises.push(result.destroy());
+                                           });
+                                            return Parse.Promise.when(activityPromises);
                                     
                                     
                                                        
-//                                                        })
-//                          storylineQuery.find(function(results){
-//                                                                var storylinePromises =[];
+                                                       })
+                         storylineQuery.find(function(results){
+                                                               var storylinePromises =[];
                                                                
-//                                                                _.each(results, function(result){
+                                                               _.each(results, function(result){
                                                                       
-//                                                                       storylinePromises.push(result.destroy())
-//                                                                       });
-//                                                                return Parse.Promise.when(storylinePromises);
+                                                                      storylinePromises.push(result.destroy())
+                                                                      });
+                                                               return Parse.Promise.when(storylinePromises);
                                                                
                                                                
-//                                                             })
-//                          trendingQuery.find(function(results){
-//                                                        var trendingPromises = []
+                                                            })
+                         trendingQuery.find(function(results){
+                                                       var trendingPromises = []
                                                        
-//                                                        _.each(results, function(result){
+                                                       _.each(results, function(result){
                                                               
-//                                                               trendingPromises.push(result.destroy())
-//                                                               });
-//                                                        return Parse.Promise.when(trendingPromises);
+                                                              trendingPromises.push(result.destroy())
+                                                              });
+                                                       return Parse.Promise.when(trendingPromises);
                                                        
 
-//                                                        }).then(function(){
+                                                       }).then(function(){
                                                               
-//                                                               response.success();
-//                                                                })
+                                                              response.success();
+                                                               })
                          
                                                        
                                                               
                          
-//                          }
+                         }
                          
-//                          else
-//                          {
+                         else
+                         {
                          
-//                          response.error("You are not Authorized to delete this Story");
-//                          }
+                         response.error("You are not Authorized to delete this Story");
+                         }
                          
-//                          });
+                         });
 
 
 
