@@ -5,7 +5,6 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 
-
 Parse.Cloud.afterSave ("Activity",function (request) {
                        
                        //to do add the tredning currnet value
@@ -338,22 +337,22 @@ Parse.Cloud.afterSave ("StoryLine",function (request) {
         });
 
 
-// Parse.Cloud.define("FUNCTION_PASSWORD_CHECK", function(request, response)
-//                    {
-//                    var password = request.params.password;
+Parse.Cloud.define("FUNCTION_PASSWORD_CHECK", function(request, response)
+                   {
+                   var password = request.params.password;
                    
                    
                    
-//                    Parse.User.logIn(request.user.getUsername(), password, {
-//                                     success: function(results)
-//                                     {
-//                                     response.success(true);
-//                                     },
-//                                     error: function() {
-//                                     response.success(false);
-//                                     }
-//                                     });
-//                    });
+                   Parse.User.logIn(request.user.getUsername(), password, {
+                                    success: function(results)
+                                    {
+                                    response.success(true);
+                                    },
+                                    error: function() {
+                                    response.success(false);
+                                    }
+                                    });
+                   });
 
 
 
