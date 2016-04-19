@@ -5,6 +5,7 @@ Parse.Cloud.define('hello', function(req, res) {
 
 
 
+
 Parse.Cloud.afterSave ("Activity",function (request) {
                        
                        //to do add the tredning currnet value
@@ -169,172 +170,172 @@ Parse.Cloud.beforeDelete("Story", function(request, response) {
 
 
 
-// // Use Parse.Cloud.define to define as many cloud functions as you want.
+// Use Parse.Cloud.define to define as many cloud functions as you want.
 
-// Parse.Cloud.afterSave ("StoryLine",function (request) {
+Parse.Cloud.afterSave ("StoryLine",function (request) {
                        
                     
-//                 var child = request.object.get("child")
+                var child = request.object.get("child")
                        
-//                 if (request.object.existed() == false ) {
+                if (request.object.existed() == false ) {
                        
 
                        
                        
-//                        var user = Parse.Object.extend("User");
+                       var user = Parse.Object.extend("User");
 
                        
-//                        var username = request.object.get("writer");
-//                        name = username.getUsername;
+                       var username = request.object.get("writer");
+                       name = username.getUsername;
                        
                        
                        
-//                        var userQuery = new Parse.Query(user);
-//                        var usernameQuery = new Parse.Query(user);
+                       var userQuery = new Parse.Query(user);
+                       var usernameQuery = new Parse.Query(user);
                        
                        
                        
                        
                        
-//                        console.log(request.object.get ("storyId"))
+                       console.log(request.object.get ("storyId"))
                        
-//                        console.log(request.object)
+                       console.log(request.object)
                        
-//                        console.log("storytitle"+request.object.get ("storyTitle"))
+                       console.log("storytitle"+request.object.get ("storyTitle"))
 
                        
-//                        var activityQuery = new Parse.Query(Parse.Object.extend("Activity"));
+                       var activityQuery = new Parse.Query(Parse.Object.extend("Activity"));
                        
-//                        var storyTitle = request.object.get ("storyTitle")
-//                        var storyID = request.object.get ("storyId")
+                       var storyTitle = request.object.get ("storyTitle")
+                       var storyID = request.object.get ("storyId")
                        
                       
                        
                        
 
-//                        var writerID = request.object.get ("writer")
+                       var writerID = request.object.get ("writer")
 
                                                                 
                                                                 
-//                        var currentuser = Parse.User.current();
-//                        var writerUsername = currentuser.get("username");
+                       var currentuser = Parse.User.current();
+                       var writerUsername = currentuser.get("username");
                        
-//                        userQuery.equalTo('subscription',storyID);
-//                        usernameQuery.equalTo('objectId', writerID)
+                       userQuery.equalTo('subscription',storyID);
+                       usernameQuery.equalTo('objectId', writerID)
                        
                     
-//                        activityQuery.equalTo("story", request.object.get("story"))
-//                        activityQuery.equalTo("type", "subscription")
+                       activityQuery.equalTo("story", request.object.get("story"))
+                       activityQuery.equalTo("type", "subscription")
                        
                        
-//                        activityQuery.find({
-//                                   success: function(results) {
-//                                   console.log("Successfully retrieved " + results.length + " scores.");
-//                                   // Do something with the returned Parse.Object values
-//                                   for (var i = 0; i < results.length; i++) {
-//                                   var object = results[i];
-//                                   console.log(object.id);
-//                                   }
-//                                   },
-//                                   error: function(error) {
-//                                   console.log("Error: " + error.code + " " + error.message);
-//                                   }
-//                                   });
+                       activityQuery.find({
+                                  success: function(results) {
+                                  console.log("Successfully retrieved " + results.length + " scores.");
+                                  // Do something with the returned Parse.Object values
+                                  for (var i = 0; i < results.length; i++) {
+                                  var object = results[i];
+                                  console.log(object.id);
+                                  }
+                                  },
+                                  error: function(error) {
+                                  console.log("Error: " + error.code + " " + error.message);
+                                  }
+                                  });
                        
                                   
                        
 
                        
-//                        console.log(writerUsername)
-//                        console.log(storyTitle)
+                       console.log(writerUsername)
+                       console.log(storyTitle)
 
                        
                        
                        
-//                        // Find devices associated with these users
-//                        var pushQuery = new Parse.Query(Parse.Installation);
+                       // Find devices associated with these users
+                       var pushQuery = new Parse.Query(Parse.Installation);
                        
                        
                        
                        
-//                        pushQuery.matchesKeyInQuery('userPointer', 'fromUser', activityQuery);
+                       pushQuery.matchesKeyInQuery('userPointer', 'fromUser', activityQuery);
                        
-//                        pushQuery.notEqualTo('userPointer',writerID);
+                       pushQuery.notEqualTo('userPointer',writerID);
 
                        
-//                        Parse.Push.send({
-//                                        where: pushQuery, // Set our Installation query
-//                                        data: {
-//                                        alert: (writerUsername+ " posted new storyline at " + storyTitle),
-//                                        badge: "Increment",
-//                                        storyid: storyID
+                       Parse.Push.send({
+                                       where: pushQuery, // Set our Installation query
+                                       data: {
+                                       alert: (writerUsername+ " posted new storyline at " + storyTitle),
+                                       badge: "Increment",
+                                       storyid: storyID
                 
-//                                        }
-//                                        });
+                                       }
+                                       });
                        
                        
-//                        //to do add the tredning currnet value
+                       //to do add the tredning currnet value
                        
-//                        var trending = Parse.Object.extend("Trending");
-//                        var trendingQuery = new Parse.Query(trending);
-//                        trendingQuery.equalTo("story", request.object.get("story"));
-//                        trendingQuery.find({
-//                                   success: function(results) {
-//                                   alert("Successfully retrieved " + results.length + " trending object");
-//                                   // Do something with the returned Parse.Object values
-//                                           if ( results.length>0)
-//                                           {
-//                                   for (var i = 0; i < results.length; i++) {
-//                                   var object = results[i];
-//                                      alert("I am inside the loop");
-//                                   object.increment("currentValue");
-//                                   object.save();
-//                                   alert(object.id + "incremented");
-//                                           };
-//                                           }
+                       var trending = Parse.Object.extend("Trending");
+                       var trendingQuery = new Parse.Query(trending);
+                       trendingQuery.equalTo("story", request.object.get("story"));
+                       trendingQuery.find({
+                                  success: function(results) {
+                                  alert("Successfully retrieved " + results.length + " trending object");
+                                  // Do something with the returned Parse.Object values
+                                          if ( results.length>0)
+                                          {
+                                  for (var i = 0; i < results.length; i++) {
+                                  var object = results[i];
+                                     alert("I am inside the loop");
+                                  object.increment("currentValue");
+                                  object.save();
+                                  alert(object.id + "incremented");
+                                          };
+                                          }
                                           
-//                                           else
-//                                           {
-//                                           alert("I am inside the else statement");
-//                                           var Trending = Parse.Object.extend("Trending");
-//                                           var trending = new Trending();
+                                          else
+                                          {
+                                          alert("I am inside the else statement");
+                                          var Trending = Parse.Object.extend("Trending");
+                                          var trending = new Trending();
                                           
                                     
-//                                           trending.set("story", request.object.get("story"));
+                                          trending.set("story", request.object.get("story"));
                                           
                                           
-//                                           trending.set("length", 48);
+                                          trending.set("length", 48);
                                           
                                           
                                           
-//                                           var arr = [], i = 48;
-//                                           while (i--) {
-//                                           arr[i] = 0;
-//                                           }
+                                          var arr = [], i = 48;
+                                          while (i--) {
+                                          arr[i] = 0;
+                                          }
                                           
-//                                           trending.set("values", arr);
+                                          trending.set("values", arr);
                                           
-//                                           trending.set("currentValue", 1);
-//                                           trending.set("sum", 0);
-//                                           trending.set("sqrSum", 0);
-//                                           trending.set("zScore", -2.0);
+                                          trending.set("currentValue", 1);
+                                          trending.set("sum", 0);
+                                          trending.set("sqrSum", 0);
+                                          trending.set("zScore", -2.0);
                                           
-//                                           alert("I am about to save");
-//                                           trending.save();
+                                          alert("I am about to save");
+                                          trending.save();
 
                                           
-//                                           };
-//                                           },
-//                                   error: function(error) {
-//                                   alert("Error: " + error.code + " " + error.message);
+                                          };
+                                          },
+                                  error: function(error) {
+                                  alert("Error: " + error.code + " " + error.message);
                                   
 
-//                                   }
-//                                   });
+                                  }
+                                  });
                        
-//                 }
+                }
                        
-//         });
+        });
 
 
 // Parse.Cloud.define("FUNCTION_PASSWORD_CHECK", function(request, response)
