@@ -343,7 +343,7 @@ Parse.Cloud.define("FUNCTION_PASSWORD_CHECK", function(request, response)
                    
                    
                    
-                   Parse.User.logIn(request.user.current().getUsername(), password, {
+                   Parse.User.logIn(request.user.getUsername(), password, {
                                     success: function(results)
                                     {
                                     response.success(true);
