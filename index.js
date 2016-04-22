@@ -15,7 +15,8 @@ var api = new ParseServer({
   databaseURI: databaseUri || 'mongodb://heroku_wpd91w4n:tgaq7r6i24d4qg72piju4pr5at@ds013951.mlab.com:13951/heroku_wpd91w4n',
   cloud: process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js',
   appId: process.env.APP_ID || 'myAppId',
-  masterKey: process.env.MASTER_KEY || '' //Add your master key here. Keep it secret!
+  masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
+  fileKey: '9f371707-0889-443b-b9ef-295fbdba6f99'
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
