@@ -341,7 +341,9 @@ Parse.Cloud.define("FUNCTION_PASSWORD_CHECK", function(request, response)
                    {
                    var password = request.params.password;
                    
-                   alert("I am inside the function");
+                   
+                   console.log("I am inside the function");
+                   
                    
                    
                    Parse.User.logIn(request.user.getUsername(), password, {
