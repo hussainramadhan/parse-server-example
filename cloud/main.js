@@ -352,7 +352,7 @@ Parse.Cloud.define("FUNCTION_PASSWORD_CHECK", function(request, response)
                                       console.log("I am inside success");
                                     response.success(true);
                                     },
-                                    error: function() {
+                                    error: function(error) {
                                       
                                       console.log("I am inside the error");
                                       console.log(error.message);
