@@ -349,9 +349,12 @@ Parse.Cloud.define("FUNCTION_PASSWORD_CHECK", function(request, response)
                    Parse.User.logIn(request.user.getUsername(), password, {
                                     success: function(results)
                                     {
+                                      onsole.log("I am inside success");
                                     response.success(true);
                                     },
                                     error: function() {
+                                      
+                                      onsole.log("I am inside the error");
                                     response.success(false);
                                     }
                                     });
